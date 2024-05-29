@@ -2,7 +2,7 @@
   background-color: #f0f0f0;
   padding: 50px;
   text-align: center;
-  background: url("C:\Users\faust\OneDrive\Escritorio\DISEÑO WEB\Backend\Integrador Backend\ecommerce-frontend\public\images\Alambrados-Belgrano-S.R.L.jpg")
+  background: url("C:/Users/faust/OneDrive/Escritorio/DISEÑO WEB/Backend/Integrador Backend/ecommerce-frontend/public/images/Alambrados-Belgrano-S.R.L.jpg")
     no-repeat center center;
   background-size: cover;
   color: #fff;
@@ -15,25 +15,25 @@
   align-items: center;
 }
 
-.banner-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.banner-section p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
 .production-section {
-  background-color: #fff;
+  background: linear-gradient(
+    180deg,
+    rgba(252, 172, 0, 0.9),
+    rgba(0, 0, 0, 0.8)
+  );
+  background-size: cover;
+  color: #fff;
   padding: 50px;
   text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .production-section h2 {
-  font-size: 2rem;
-  margin-bottom: 50px;
+  font-size: 2.5rem;
+  padding: 50px 0;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .production-section ul {
@@ -42,16 +42,37 @@
   margin: 0;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .production-section .production-item {
-  margin: 0 10px;
+  margin: 20px 10px;
   text-align: center;
+  width: 45%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.production-item p {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.production-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .production-section ul li {
   font-size: 1.2rem;
   cursor: pointer;
+  color: #fff;
 }
 
 .production-section ul li:hover {
@@ -61,37 +82,13 @@
 .production-section img {
   width: 200px;
   height: 200px;
-  margin-top: 20px;
+  margin: 20px 0;
   border-radius: 50%;
   border: #003366 solid 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-.ofertas-section {
-  background-color: #f0f0f0;
-  padding: 50px;
-  text-align: center;
-}
-
-.ofertas-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.ofertas-section .oferta-item {
-  background-color: #fff;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.ofertas-section .oferta-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.ofertas-section .oferta-item p {
-  font-size: 1.2rem;
-  color: #666;
+.production-section img:hover {
+  transform: scale(1.1);
 }

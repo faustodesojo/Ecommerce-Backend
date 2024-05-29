@@ -1,0 +1,131 @@
+.productos-titulo {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  background-image: url(https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.cercosnorte.com/wp-content/uploads/2024/01/IMG_3299-scaled.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 200px;
+}
+
+.productos-descripcion {
+  text-align: center;
+  font-size: 2rem;
+  color: #666;
+  margin-bottom: 100px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  font-style: italic;
+}
+
+.categorias-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.categorias-container h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.categorias-lista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.categorias-lista li {
+  display: inline;
+}
+
+.categorias-lista button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.categorias-lista button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.productos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 80%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.producto-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.producto-nombre {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.producto-descripcion {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.producto-precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.producto-boton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.producto-boton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
