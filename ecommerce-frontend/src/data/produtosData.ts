@@ -1,35 +1,35 @@
 export const productos = [
     {
       id: 1,
-      nombre: "Piche de Seguridad 1",
-      descripcion: "Descripción del piche de seguridad 1.",
-      precio: "$50",
-      categoria: "Piches de Seguridad",
-      imagen: "piche1.jpg"
+      nombre: "Pinche de Seguridad Suelto",
+      descripcion: "Flor de pinches suelta.",
+      precio: "$1550",
+      categoria: "Pinches de Seguridad",
+      imagen: "pinche-suelto.jpg"
     },
     {
       id: 2,
-      nombre: "Piche de Seguridad 2",
-      descripcion: "Descripción del piche de seguridad 2.",
-      precio: "$55",
-      categoria: "Piches de Seguridad",
-      imagen: "piche2.jpg"
+      nombre: "Pinche de Seguridad Simple ",
+      descripcion: "7 flores de pinches de seguridad, se pueden amurar o atornillar. Cada unidad tiene 1 mt de ancho.",
+      precio: "$2100",
+      categoria: "Pinches de Seguridad",
+      imagen: "pinche-simple.jpg"
     },
     {
       id: 3,
-      nombre: "Piche de Seguridad 3",
-      descripcion: "Descripción del piche de seguridad 3.",
-      precio: "$60",
-      categoria: "Piches de Seguridad",
-      imagen: "piche3.jpg"
+      nombre: "Pinche de Seguridad Reforzado",
+      descripcion: "7 flores de pinches de seguridad,con un pua entre cada flor, se pueden amurar o atornillar. Cada unidad tiene 1 mt de ancho.",
+      precio: "$2600",
+      categoria: "Pinches de Seguridad",
+      imagen: "pinche-reforzado.jpg"
     },
     {
       id: 4,
-      nombre: "Piche de Seguridad 4",
-      descripcion: "Descripción del piche de seguridad 4.",
-      precio: "$65",
-      categoria: "Piches de Seguridad",
-      imagen: "piche4.jpg"
+      nombre: "Pinche Doble de Seguridad Maxima",
+      descripcion: "Pinche de maxima seguridad, con 7 flores con alutra de 15 cm, con flores de seguridad entre cada pinche. Cada unidad tiene 1 mt de ancho, se pueden amurar o atornillar.",
+      precio: "$3650",
+      categoria: "Pinches de Seguridad",
+      imagen: "pinche-maxima-seguridad.png"
     },
     {
       id: 5,

@@ -1,10 +1,14 @@
+// Productos.tsx
 import React, { useState } from 'react';
 import { productos } from '../../data/produtosData';
 import './Productos.css';
+import { useCart } from '../../pages/cart/CartContext';
+import Button from '../../components/UI/Button/Button';
 
 const Productos: React.FC = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string | null>(null);
   const [productosMostrados, setProductosMostrados] = useState<number>(8);
+  const { addToCart } = useCart();
 
   const productosFiltrados = categoriaSeleccionada
     ? productos.filter((producto) => producto.categoria === categoriaSeleccionada)
@@ -20,11 +24,12 @@ const Productos: React.FC = () => {
 
   return (
     <div className="productos-page">
-      <div  className="productos-titulo">
-      <h1>Productos</h1>
+      <div className="productos-titulo">
+      <h1>Nuestros Productos</h1>
       </div>
       <p className="productos-descripcion">
-        Ofrecemos una amplia variedad de productos para la seguridad perimetral elaborados con la mejor mercaderia
+        Ofrecemos una amplia variedad de productos para la seguridad perimetral, incluyendo:
+        piches de seguridad, concertina, postes, tejido y accesorios.
       </p>
 
       <div className="categorias-container">
@@ -32,11 +37,11 @@ const Productos: React.FC = () => {
         <ul className="categorias-lista">
           {categorias.map((categoria) => (
             <li key={categoria}>
-              <button onClick={() => setCategoriaSeleccionada(categoria)}>{categoria}</button>
+              <Button onClick={() => setCategoriaSeleccionada(categoria)}>{categoria}</Button>
             </li>
           ))}
           <li>
-            <button onClick={() => setCategoriaSeleccionada(null)}>Todos</button>
+            <Button onClick={() => setCategoriaSeleccionada(null)}>Todos</Button>
           </li>
         </ul>
       </div>
@@ -47,15 +52,15 @@ const Productos: React.FC = () => {
             <h3 className="producto-nombre">{producto.nombre}</h3>
             <p className="producto-descripcion">{producto.descripcion}</p>
             <span className="producto-precio">{producto.precio}</span>
-            <button className="producto-boton">Agregar al Carrito</button>
+            <Button onClick={() => addToCart(producto)}>Agregar al Carrito</Button>
           </div>
         ))}
-      </div>
       {productosVisibles.length < productosFiltrados.length && (
         <div className="ver-mas-container">
-          <button className="ver-mas-boton" onClick={cargarMasProductos}>Ver más</button>
+          <Button onClick={cargarMasProductos}>Ver más</Button>
         </div>
       )}
+      </div>
     </div>
   );
 };

@@ -1,3 +1,7 @@
+:root {
+  --primary-yellow: #f5c518;
+}
+
 body {
   margin: 0;
   padding: 0;
