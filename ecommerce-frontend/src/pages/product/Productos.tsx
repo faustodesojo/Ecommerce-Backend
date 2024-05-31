@@ -1,4 +1,3 @@
-// Productos.tsx
 import React, { useState } from 'react';
 import { productos } from '../../data/produtosData';
 import './Productos.css';
@@ -7,7 +6,7 @@ import Button from '../../components/UI/Button/Button';
 
 const Productos: React.FC = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string | null>(null);
-  const [productosMostrados, setProductosMostrados] = useState<number>(8);
+  const [productosMostrados, setProductosMostrados] = useState<number>(6);
   const { addToCart } = useCart();
 
   const productosFiltrados = categoriaSeleccionada
@@ -19,13 +18,13 @@ const Productos: React.FC = () => {
   const categorias = Array.from(new Set(productos.map((producto) => producto.categoria)));
 
   const cargarMasProductos = () => {
-    setProductosMostrados(productosMostrados + 8);
+    setProductosMostrados(productosMostrados + 6);
   };
 
   return (
     <div className="productos-page">
       <div className="productos-titulo">
-      <h1>Nuestros Productos</h1>
+        <h1>Nuestros Productos</h1>
       </div>
       <p className="productos-descripcion">
         Ofrecemos una amplia variedad de productos para la seguridad perimetral, incluyendo:
@@ -35,16 +34,17 @@ const Productos: React.FC = () => {
       <div className="categorias-container">
         <h2>Categorías</h2>
         <ul className="categorias-lista">
+          <li>
+            <Button onClick={() => setCategoriaSeleccionada(null)}>Todos</Button>
+          </li>
           {categorias.map((categoria) => (
             <li key={categoria}>
               <Button onClick={() => setCategoriaSeleccionada(categoria)}>{categoria}</Button>
             </li>
           ))}
-          <li>
-            <Button onClick={() => setCategoriaSeleccionada(null)}>Todos</Button>
-          </li>
         </ul>
       </div>
+
       <div className="productos-container">
         {productosVisibles.map((producto) => (
           <div key={producto.id} className="producto-card">
@@ -55,12 +55,13 @@ const Productos: React.FC = () => {
             <Button onClick={() => addToCart(producto)}>Agregar al Carrito</Button>
           </div>
         ))}
+      </div>
+
       {productosVisibles.length < productosFiltrados.length && (
         <div className="ver-mas-container">
           <Button onClick={cargarMasProductos}>Ver más</Button>
         </div>
       )}
-      </div>
     </div>
   );
 };
