@@ -1,0 +1,38 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0e0e0e;
+    height: 200px;
+    padding: 1rem 2rem;
+    color: #ffffff;
+}
+
+.footer-logo img{
+    margin-left: 30px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.redes{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container h3{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container li{
+    list-style: none;
+    margin: 0 10px;
+}

@@ -24,12 +24,13 @@ const Productos: React.FC = () => {
   return (
     <div className="productos-page">
       <div className="productos-titulo">
-        <h1>Nuestros Productos</h1>
-      </div>
-      <p className="productos-descripcion">
+        <h1>Nuestros Productos</h1> 
+        <p className="productos-descripcion">
         Ofrecemos una amplia variedad de productos para la seguridad perimetral, incluyendo:
         piches de seguridad, concertina, postes, tejido y accesorios.
       </p>
+      </div>
+
 
       <div className="categorias-container">
         <h2>Categorías</h2>

@@ -4,6 +4,7 @@ import Navbar from './components/navbar/navbar';
 import AppRoutes from './routes/routes';
 import { CartProvider } from './pages/cart/CartContext';
 import './App.css';
+import Footer from './components/footer/footer';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
       <CartProvider>
         <AppRoutes />
       </CartProvider>
+      <Footer />
     </Router>
   );
 };
