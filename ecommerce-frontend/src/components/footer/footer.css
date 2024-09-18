@@ -1,11 +1,12 @@
 .footer{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     background-color: #0e0e0e;
-    height: 200px;
-    padding: 1rem 2rem;
+    /* height: 200px; */
+    /* padding: 1rem 2rem; */
     color: #ffffff;
+    flex-direction: column;
 }
 
 .footer-logo img{
@@ -15,15 +16,25 @@
     height: 50px;
 }
 
+.footer-container h3{
+    color: grey;
+}
+
 .footer-container{
     display: flex;
     justify-content: space-between;
-    gap: 5px;
+    gap: 25px;
 }
 
-.redes{
+.redes, .contacto a{
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.contacto a:hover{
+    text-decoration: underline;
 }
 
 .footer-container h3{
