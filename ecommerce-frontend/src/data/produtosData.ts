@@ -33,75 +33,75 @@ export const productos = [
     },
     {
       id: 5,
-      nombre: "Concertina 1",
-      descripcion: "Descripción de la concertina 1.",
-      precio: "$70",
+      nombre: "Concertina doble x 7 mts",
+      descripcion: "Concertina cruzada doble de maxima seguridad. Se extiene como maximo 7 mts y tiene un diametro de 30 cm.",
+      precio: "$7500",
       categoria: "Concertina",
-      imagen: "concertina1.jpg"
+      imagen: "concertina-30-cm.png"
     },
     {
       id: 6,
-      nombre: "Concertina 2",
-      descripcion: "Descripción de la concertina 2.",
-      precio: "$75",
+      nombre: "Concertina doble x 10 mts",
+      descripcion: "Concertina cruzada doble de maxima seguridad. Se extiene como maximo 10 mts y tiene un diametro de 40 cm.",
+      precio: "$9500",
       categoria: "Concertina",
-      imagen: "concertina2.jpg"
+      imagen: "concertina-45-cm.png"
     },
     {
       id: 7,
-      nombre: "Concertina 3",
-      descripcion: "Descripción de la concertina 3.",
-      precio: "$80",
+      nombre: "Concertina simple x 9 mts",
+      descripcion: "Concertina simple. Se extiende como maximo 9 mts y tiene un diametro de 30 cm.",
+      precio: "$6000",
       categoria: "Concertina",
-      imagen: "concertina3.jpg"
+      imagen: "concertina-simple.png"
     },
     {
       id: 8,
-      nombre: "Concertina 4",
-      descripcion: "Descripción de la concertina 4.",
-      precio: "$85",
+      nombre: "Mensula angulo a 45°",
+      descripcion: "Mensula con angulo a 45° para concertina o 3 hilos de pua.",
+      precio: "$3500",
       categoria: "Concertina",
-      imagen: "concertina4.jpg"
+      imagen: "mensula-45-cm.png"
     },
     {
       id: 9,
-      nombre: "Poste 1",
-      descripcion: "Descripción del poste 1.",
-      precio: "$90",
+      nombre: "Esquinero Hormigon Olimpico",
+      descripcion: "Esquinero de hormigon Olimpico de 12x12 cm con hierros del 8 con codo a 45° para colocacion de pua o concertina .",
+      precio: "$9000",
       categoria: "Postes",
-      imagen: "poste1.jpg"
+      imagen: "Esquinero-Hormigon-Olimpico.png"
     },
     {
       id: 10,
-      nombre: "Poste 2",
-      descripcion: "Descripción del poste 2.",
-      precio: "$95",
+      nombre: "Refuerzo Hormigon Olimpico",
+      descripcion: "Refuerzo de hormigon Olimpico de 12x12 cm con hierros del 8 con codo a 45° para colocacion de pua o concertina.",
+      precio: "$9500",
       categoria: "Postes",
-      imagen: "poste2.jpg"
+      imagen: "Refuerzo.png"
     },
     {
       id: 11,
-      nombre: "Poste 3",
-      descripcion: "Descripción del poste 3.",
-      precio: "$100",
+      nombre: "Poste Intermedio Hormigon Olimpico", 
+      descripcion: "Poste Intermedio de hormigon Olimpico de 12x12 cm con hierros del 8 con codo a 45° para colocacion de pua o concertina.",
+      precio: "$3500",
       categoria: "Postes",
-      imagen: "poste3.jpg"
+      imagen: "Intermedio.png"
     },
     {
       id: 12,
-      nombre: "Poste 4",
-      descripcion: "Descripción del poste 4.",
-      precio: "$105",
+      nombre: "Puntal Hormigon",
+      descripcion: "Puntal de hormigon para alambrado de 1,80 o 2 mts de alto.",
+      precio: "$2500",
       categoria: "Postes",
-      imagen: "poste4.jpg"
+      imagen: "Puntal-Hormigon.png"
     },
     {
       id: 13,
-      nombre: "Tejido 1",
-      descripcion: "Descripción del tejido 1.",
+      nombre: "Tejido Romboidal 14,5 2,5' x 2mts",
+      descripcion: "Rollo compacto x 10 mts Calibre: N° 14,5(1,93mm) Malla: 2,5' (68mm) Altura: 2mts .",
       precio: "$110",
       categoria: "Tejido",
-      imagen: "tejido1.jpg"
+      imagen: "14,5-2,5.png"
     },
     {
       id: 14,
