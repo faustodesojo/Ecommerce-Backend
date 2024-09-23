@@ -1,5 +1,5 @@
-import React from 'react';
-import { useCart } from '../../pages/cart/CartContext';
+import React from "react";
+import { useCart } from "../../pages/cart/CartContext";
 
 const Cart: React.FC = () => {
   const { cart } = useCart();
@@ -12,9 +12,13 @@ const Cart: React.FC = () => {
       ) : (
         <ul>
           {cart.map((producto) => (
-            <li key={producto.id}>
-              {producto.nombre} - {producto.precio}
-            </li>
+            <div key={producto.id}>
+              <img src={`./images/${producto.imagen}`} alt={producto.nombre} />
+              <p>
+                {" "}
+                {producto.nombre} - {producto.precio}
+              </p>
+            </div>
           ))}
         </ul>
       )}
