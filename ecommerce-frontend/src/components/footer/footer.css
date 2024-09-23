@@ -26,6 +26,15 @@
     justify-content: space-around;
     gap: 25px;
     width: 100%;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+    .footer-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .redes, .contacto a{
