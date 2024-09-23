@@ -4,7 +4,7 @@ export const productos = [
       nombre: "Pinche de Seguridad Suelto",
       descripcion: "Flor de pinches suelta.",
       precio: "$1550",
-      categoria: "Pinches de Seguridad",
+      categoria: "Pinches",
       imagen: "pinche-suelto.jpg"
     },
     {
@@ -12,7 +12,7 @@ export const productos = [
       nombre: "Pinche de Seguridad Simple ",
       descripcion: "7 flores de pinches de seguridad, se pueden amurar o atornillar. Cada unidad tiene 1 mt de ancho.",
       precio: "$2100",
-      categoria: "Pinches de Seguridad",
+      categoria: "Pinches",
       imagen: "pinche-simple.jpg"
     },
     {
@@ -20,7 +20,7 @@ export const productos = [
       nombre: "Pinche de Seguridad Reforzado",
       descripcion: "7 flores de pinches de seguridad,con un pua entre cada flor, se pueden amurar o atornillar. Cada unidad tiene 1 mt de ancho.",
       precio: "$2600",
-      categoria: "Pinches de Seguridad",
+      categoria: "Pinches",
       imagen: "pinche-reforzado.jpg"
     },
     {
@@ -28,7 +28,7 @@ export const productos = [
       nombre: "Pinche Doble de Seguridad Maxima",
       descripcion: "Pinche de maxima seguridad, con 7 flores con alutra de 15 cm, con flores de seguridad entre cada pinche. Cada unidad tiene 1 mt de ancho, se pueden amurar o atornillar.",
       precio: "$3650",
-      categoria: "Pinches de Seguridad",
+      categoria: "Pinches",
       imagen: "pinche-maxima-seguridad.png"
     },
     {
