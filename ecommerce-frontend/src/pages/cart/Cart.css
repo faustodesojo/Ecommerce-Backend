@@ -4,6 +4,7 @@
   border-radius: 8px;
   max-width: 800px;
   margin: 0 auto;
+  min-height: 70vh;
 }
 
 .cart-container h2 {
