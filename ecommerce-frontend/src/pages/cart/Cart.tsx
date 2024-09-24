@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cart.css";
 import { useCart } from "../../pages/cart/CartContext";
+import Button from "../../components/UI/Button/Button";
 
 const Cart: React.FC = () => {
   const { cart, addToCart, removeFromCart, clearCart } = useCart();
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const handlePurchase = () => {
+    setShowConfirm(true);
+  };
+
+  const confirmPurchase = (confirm: boolean) => {
+    if (confirm) {
+      clearCart();
+    }
+    setShowConfirm(false);
+  };
+
+  const totalAmount = cart
+    .reduce((total, producto) => {
+      return (
+        total + producto.cantidad * parseFloat(producto.precio.replace("$", ""))
+      );
+    }, 0)
+    .toFixed(2);
 
   return (
     <div className="cart-container">
@@ -35,10 +56,24 @@ const Cart: React.FC = () => {
               </div>
             ))}
           </ul>
-          <button className="clear-cart-btn" onClick={clearCart}>
-            Vaciar Carrito
-          </button>
+          <div className="cart-buttons">
+            <button className="purchase-btn" onClick={handlePurchase}>
+              Comprar
+            </button>
+            <button className="clear-cart-btn" onClick={clearCart}>
+              Vaciar Carrito
+            </button>
+          </div>
+          <p className="cart-total">Total: ${totalAmount}</p>
         </>
+      )}
+
+      {showConfirm && (
+        <div className="confirmation-modal">
+          <p>¿Desea realizar la compra?</p>
+          <Button onClick={() => confirmPurchase(true)}>Sí</Button>
+          <Button onClick={() => confirmPurchase(false)}>No</Button>
+        </div>
       )}
     </div>
   );
