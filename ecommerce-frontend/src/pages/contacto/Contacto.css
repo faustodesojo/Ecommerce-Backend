@@ -1,81 +1,86 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  .contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #f1c40f;
-  }
-  
-  .contact-title {
-    text-align: center;
-    color: #f1c40f;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    color: #f1c40f;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .form-input, .form-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #f1c40f;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
-  }
-  
-  .form-input:focus, .form-textarea:focus {
-    border-color: #e67e22;
-    outline: none;
-  }
-  
-  .form-textarea {
-    height: 100px;
-    resize: none;
-  }
-  
-  .submit-button {
-    background-color: #f1c40f;
-    color: #333;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #e67e22;
-  }
-  
-  .error-message {
-    color: #e74c3c;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #f1c40f;
+  min-height: 60vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contact-title {
+  text-align: center;
+  color: #f1c40f;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  color: #f1c40f;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-input,
+.form-textarea {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #f1c40f;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #e67e22;
+  outline: none;
+}
+
+.form-textarea {
+  height: 100px;
+  resize: none;
+}
+
+.submit-button {
+  background-color: #f1c40f;
+  color: #333;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #e67e22;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
