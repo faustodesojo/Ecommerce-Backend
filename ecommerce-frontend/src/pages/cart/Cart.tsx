@@ -41,17 +41,20 @@ const Cart: React.FC = () => {
                   alt={producto.nombre}
                 />
                 <p>{producto.nombre}</p>
+                <div className="cart-item-price">
                 <p>
-                  Precio Unitario: ${producto.precio} x {producto.cantidad} = $
+                  $
                   {(
                     producto.cantidad *
                     parseFloat(producto.precio.replace("$", ""))
                   ).toFixed(2)}
                 </p>
+                
                 <div className="quantity-controls">
                   <button onClick={() => removeFromCart(producto.id)}>-</button>
                   <span>{producto.cantidad}</span>
                   <button onClick={() => addToCart(producto)}>+</button>
+                </div>
                 </div>
               </div>
             ))}
@@ -71,8 +74,10 @@ const Cart: React.FC = () => {
       {showConfirm && (
         <div className="confirmation-modal">
           <p>¿Desea realizar la compra?</p>
+          <div>
           <Button onClick={() => confirmPurchase(true)}>Sí</Button>
           <Button onClick={() => confirmPurchase(false)}>No</Button>
+          </div>
         </div>
       )}
     </div>

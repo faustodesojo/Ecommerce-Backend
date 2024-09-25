@@ -64,6 +64,10 @@
     z-index: 999;
   }
 
+  .navbar-logo a {
+    display: none;
+  }
+
   .navbar-links.open {
     display: flex;
   }
