@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link to="/products" onClick={() => setIsOpen(false)}>
+          <Link to="/productos" onClick={() => setIsOpen(false)}>
             Productos
           </Link>
         </li>

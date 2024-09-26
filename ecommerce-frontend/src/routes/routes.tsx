@@ -10,7 +10,7 @@ const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/products/" element={<Productos />} />
+      <Route path="/productos/" element={<Productos />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/cart" element={<Cart/>} />
     </Routes>

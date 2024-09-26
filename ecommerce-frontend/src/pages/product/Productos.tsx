@@ -1,29 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { productos } from "../../data/produtosData";
 import "./Productos.css";
 import { useCart } from "../../pages/cart/CartContext";
 import Button from "../../components/UI/Button/Button";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
+import { useLocation } from "react-router-dom"; 
 
 const Productos: React.FC = () => {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<
-    string | null
-  >(null);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string | null>(null);
   const [productosMostrados, setProductosMostrados] = useState<number>(4);
   const [imagenZoom, setImagenZoom] = useState<string | null>(null);
   const { addToCart } = useCart();
 
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.categoriaSeleccionada) {
+      setCategoriaSeleccionada(location.state.categoriaSeleccionada);
+    }
+  }, [location.state]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categoriaSeleccionada]);
+
   const productosFiltrados = categoriaSeleccionada
-    ? productos.filter(
-        (producto) => producto.categoria === categoriaSeleccionada
-      )
+    ? productos.filter((producto) => producto.categoria === categoriaSeleccionada)
     : productos;
 
   const productosVisibles = productosFiltrados.slice(0, productosMostrados);
 
-  const categorias = Array.from(
-    new Set(productos.map((producto) => producto.categoria))
-  );
+  const categorias = Array.from(new Set(productos.map((producto) => producto.categoria)));
 
   const cargarMasProductos = () => {
     setProductosMostrados(productosMostrados + 4);
@@ -85,9 +93,7 @@ const Productos: React.FC = () => {
             <h3 className="producto-nombre">{producto.nombre}</h3>
             <p className="producto-descripcion">{producto.descripcion}</p>
             <span className="producto-precio">{producto.precio}</span>
-            <Button onClick={() => addToCart(producto)}>
-              Agregar al Carrito
-            </Button>
+            <Button onClick={() => addToCart(producto)}>Agregar al Carrito</Button>
           </div>
         ))}
       </div>
@@ -97,6 +103,7 @@ const Productos: React.FC = () => {
           <Button onClick={cargarMasProductos}>Ver más</Button>
         </div>
       )}
+
       {imagenZoom && (
         <div className="modal" onClick={cerrarImagenZoom}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

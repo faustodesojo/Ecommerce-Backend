@@ -35,10 +35,12 @@
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  margin-left: 15rem;
 }
 
 .navbar-links li {
   display: inline;
+  margin: 0 0.5rem;
 }
 
 .navbar-links a {
@@ -73,6 +75,11 @@
 }
 .cart-login a {
   font-size: 24px;
+}
+@media screen and (max-width: 1024px) {
+  .navbar-links {
+    margin-left: 2rem;
+  }
 }
 @media screen and (max-width: 768px) {
   .navbar-links {
@@ -124,3 +131,4 @@
     transform: rotate(-50deg) translate(5px, -5px);
   }
 }
+
