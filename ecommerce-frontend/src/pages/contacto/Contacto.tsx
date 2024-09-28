@@ -1,42 +1,59 @@
-import React, { useState } from 'react';
-import './Contacto.css';
+import React, { useState } from "react";
+import "./Contacto.css";
 
 interface FormData {
   name: string;
   email: string;
   message: string;
+  cellphone?: string;
 }
 
 const Contacto: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
+    cellphone: "",
   });
 
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState<string>("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.message) {
-      setError('Por favor, complete todos los campos.');
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.message ||
+      !formData.cellphone
+    ) {
+      setError("Por favor, complete todos los campos.");
       return false;
     }
 
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(formData.email)) {
-      setError('Ingrese un correo válido.');
+      setError("Ingrese un correo válido.");
       return false;
     }
 
-    setError('');
+    const phoneRegex = /^\d{7,15}$/; // Acepta números de 7 a 15 dígitos
+    if (!phoneRegex.test(formData.cellphone || "")) {
+      setError(
+        "Ingrese un número de celular válido (solo números, entre 7 y 15 dígitos)."
+      );
+      return false;
+    }
+
+    setError("");
     return true;
   };
 
@@ -44,9 +61,9 @@ const Contacto: React.FC = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log('Formulario enviado:', formData);
-      alert('Formulario enviado con éxito');
-      setFormData({ name: '', email: '', message: '' });
+      console.log("Formulario enviado:", formData);
+      alert("Formulario enviado con éxito");
+      setFormData({ name: "", email: "", message: "", cellphone: "" });
     }
   };
 
@@ -81,6 +98,19 @@ const Contacto: React.FC = () => {
         </div>
 
         <div className="form-group">
+          <label htmlFor="cellphone">Celular:</label>
+          <input
+            type="number"
+            id="cellphone"
+            name="cellphone"
+            value={formData.cellphone}
+            onChange={handleChange}
+            required
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
           <label htmlFor="message">Mensaje:</label>
           <textarea
             id="message"
@@ -94,7 +124,9 @@ const Contacto: React.FC = () => {
 
         {error && <p className="error-message">{error}</p>}
 
-        <button type="submit" className="submit-button">Enviar</button>
+        <button type="submit" className="submit-button">
+          Enviar
+        </button>
       </form>
     </div>
   );
