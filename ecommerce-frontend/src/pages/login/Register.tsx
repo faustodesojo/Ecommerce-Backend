@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 
 const Register: React.FC = () => {
@@ -9,21 +9,32 @@ const Register: React.FC = () => {
     password: "",
   });
   const [error, setError] = useState<string>("");
+  const [inputErrors, setInputErrors] = useState({
+    name: false,
+    email: false,
+    password: false,
+  });
+  const [successMessage, setSuccessMessage] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setInputErrors({ ...inputErrors, [name]: false });
   };
 
   const validateForm = () => {
-    if (!formData.name || !formData.email || !formData.password) {
-      setError("Por favor, complete todos los campos.");
-      return false;
-    }
-
     const emailRegex = /\S+@\S+\.\S+/;
-    if (!emailRegex.test(formData.email)) {
-      setError("Ingrese un correo válido.");
+    const errors = {
+      name: !formData.name,
+      email: !formData.email || !emailRegex.test(formData.email),
+      password: !formData.password,
+    };
+    setInputErrors(errors);
+
+    if (errors.name || errors.password || errors.email) {
+      setError("Por favor, complete todos los campos correctamente.");
       return false;
     }
 
@@ -31,10 +42,15 @@ const Register: React.FC = () => {
     return true;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Registro exitoso:", formData);
+      // Simulando una operación asíncrona
+      setSuccessMessage("¡Registro exitoso!");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Redirigir a la página principal después del éxito
+      navigate("/");
     }
   };
 
@@ -50,7 +66,7 @@ const Register: React.FC = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${inputErrors.name ? "input-error" : ""}`}
           />
         </div>
 
@@ -62,7 +78,7 @@ const Register: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${inputErrors.email ? "input-error" : ""}`}
           />
         </div>
 
@@ -74,11 +90,14 @@ const Register: React.FC = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${
+              inputErrors.password ? "input-error" : ""
+            }`}
           />
         </div>
 
         {error && <p className="error-message">{error}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
 
         <button type="submit" className="auth-button">
           Registrarse
@@ -86,7 +105,7 @@ const Register: React.FC = () => {
       </form>
       <p className="auth-login">
         ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión aquí</Link>
-      </p>{" "}
+      </p>
     </div>
   );
 };

@@ -1,25 +1,39 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState<string>("");
+  const [inputErrors, setInputErrors] = useState({
+    email: false,
+    password: false,
+  });
+  const [successMessage, setSuccessMessage] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setInputErrors({ ...inputErrors, [name]: false });
   };
 
   const validateForm = () => {
-    if (!formData.email || !formData.password) {
-      setError("Por favor, complete todos los campos.");
+    const emailRegex = /\S+@\S+\.\S+/;
+    const errors = {
+      email: !formData.email || !emailRegex.test(formData.email),
+      password: !formData.password,
+    };
+    setInputErrors(errors);
+
+    if (errors.email) {
+      setError("Ingrese un correo válido.");
       return false;
     }
 
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (!emailRegex.test(formData.email)) {
-      setError("Ingrese un correo válido.");
+    if (errors.password) {
+      setError("Por favor, complete todos los campos.");
       return false;
     }
 
@@ -27,10 +41,13 @@ const Login: React.FC = () => {
     return true;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Login exitoso:", formData);
+      setSuccessMessage("¡Sesión iniciada correctamente!");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      navigate("/");
     }
   };
 
@@ -46,7 +63,7 @@ const Login: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${inputErrors.email ? "input-error" : ""}`}
           />
         </div>
 
@@ -58,11 +75,14 @@ const Login: React.FC = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${
+              inputErrors.password ? "input-error" : ""
+            }`}
           />
         </div>
 
         {error && <p className="error-message">{error}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
 
         <button type="submit" className="auth-button">
           Iniciar Sesión
@@ -70,7 +90,7 @@ const Login: React.FC = () => {
       </form>
       <p className="auth-register">
         ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
-      </p>{" "}
+      </p>
     </div>
   );
 };

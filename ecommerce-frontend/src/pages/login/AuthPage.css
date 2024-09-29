@@ -32,6 +32,10 @@
   font-size: 1rem;
 }
 
+.input-error {
+  border-color: red;
+}
+
 .auth-button {
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -50,5 +54,13 @@
 .error-message {
   color: red;
   font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.input-error {
+  border: 1px solid red;
+}
+.success-message {
+  color: green;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }

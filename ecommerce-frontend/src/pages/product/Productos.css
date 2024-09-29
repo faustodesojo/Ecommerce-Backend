@@ -1,23 +1,52 @@
 .productos-titulo {
-  background-color: #000000;
+  position: relative;
   height: 600px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.productos-titulo h1 {
-  text-align: center;
-  font-size: 4.5rem;
-  margin-bottom: 20px;
-  color: var(--primary-yellow);
+.productos-titulo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://yourfiles.cloud/uploads/613fb0a3c45509b59b1c4e102a89486d/Alambre-romboidal-bluemat-1.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px); /* Aplica el desenfoque solo al fondo */
+  z-index: -1; /* Asegura que esté detrás del texto */
+}
+
+.productos-titulo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fondo oscuro encima de la imagen desenfocada */
+  z-index: 0;
+}
+
+.productos-titulo h1,
+.productos-descripcion {
+  position: relative;
+  z-index: 1; /* Asegura que el texto esté por encima del fondo */
 }
 
 .productos-descripcion {
   text-align: center;
   font-size: 1.5rem;
-  color: #666;
+  color: black;
   margin-bottom: 100px;
   width: 80%;
   display: flex;
@@ -26,6 +55,13 @@
   margin: 0 auto;
   padding-bottom: 100px;
   font-style: italic;
+}
+
+.productos-titulo h1 {
+  text-align: center;
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+  color: black;
 }
 
 .categorias-container {
