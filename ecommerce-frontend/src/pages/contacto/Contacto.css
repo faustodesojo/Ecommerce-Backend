@@ -41,14 +41,13 @@ body {
   display: block;
 }
 
-.form-input,
+.form-input1,
 .form-textarea {
   width: 80%;
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
   background-color: #fff;
-  color: #333;
   font-size: 16px;
 }
 
@@ -73,6 +72,8 @@ body {
   font-size: 16px;
   font-weight: bold;
   transition: background-color 0.3s;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .submit-button:hover {

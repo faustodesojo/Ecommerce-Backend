@@ -12,6 +12,9 @@ const Productos: React.FC = () => {
   const [imagenZoom, setImagenZoom] = useState<string | null>(null);
   const { addToCart } = useCart();
 
+  const [mostrarPopup, setMostrarPopup] = useState<boolean>(false);
+  const [productoAgregado, setProductoAgregado] = useState<{nombre: string, imagen: string} | null>(null);
+
 
   const location = useLocation();
 
@@ -22,7 +25,7 @@ const Productos: React.FC = () => {
   }, [location.state]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 600);
   }, [categoriaSeleccionada]);
 
   const productosFiltrados = categoriaSeleccionada
@@ -44,6 +47,17 @@ const Productos: React.FC = () => {
   const cerrarImagenZoom = () => {
     setImagenZoom(null);
   };
+
+  const handleAddToCart = (producto: any) => {
+    addToCart(producto);
+    setProductoAgregado({ nombre: producto.nombre, imagen: producto.imagen });
+    setMostrarPopup(true);
+  
+    setTimeout(() => {
+      setMostrarPopup(false);
+    }, 3500); 
+  };
+  
 
   return (
     <div className="productos-page">
@@ -93,7 +107,7 @@ const Productos: React.FC = () => {
             <h3 className="producto-nombre">{producto.nombre}</h3>
             <p className="producto-descripcion">{producto.descripcion}</p>
             <span className="producto-precio">{producto.precio}</span>
-            <Button onClick={() => addToCart(producto)}>Agregar al Carrito</Button>
+            <Button onClick={() => handleAddToCart(producto)}>Agregar al Carrito</Button>
           </div>
         ))}
       </div>
@@ -111,8 +125,20 @@ const Productos: React.FC = () => {
           </div>
         </div>
       )}
+
+{mostrarPopup && productoAgregado && (
+  <div className={`popup ${mostrarPopup ? 'visible' : ''}`}>
+    <img
+      src={`./images/${productoAgregado.imagen}`}
+      alt={productoAgregado.nombre}
+      className="popup-imagen"
+    />
+    <p>{productoAgregado.nombre} ha sido agregado al carrito</p>
+  </div>
+)}
+
+
     </div>
   );
 };
-
 export default Productos;

@@ -138,6 +138,10 @@ ul {
   margin: 5px;
 }
 
+.remove-btn {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .cart-item-price {
     flex-direction: column;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Cart.css";
 import { useCart } from "../../pages/cart/CartContext";
 import Button from "../../components/UI/Button/Button";
+import { IoTrashOutline } from "react-icons/io5";
 
 const Cart: React.FC = () => {
   const { cart, addToCart, removeFromCart, clearCart } = useCart();
@@ -51,10 +52,16 @@ const Cart: React.FC = () => {
                 </p>
                 
                 <div className="quantity-controls">
-                  <button onClick={() => removeFromCart(producto.id)}>-</button>
-                  <span>{producto.cantidad}</span>
-                  <button onClick={() => addToCart(producto)}>+</button>
-                </div>
+                    <button onClick={() => removeFromCart(producto.id)}>-</button>
+                    <span>{producto.cantidad}</span>
+                    <button onClick={() => addToCart(producto)}>+</button>
+                    <p
+                      onClick={() => removeFromCart(producto.id, true)} 
+                      className="remove-btn"
+                    >
+                      <IoTrashOutline />
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

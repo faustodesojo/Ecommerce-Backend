@@ -17,8 +17,8 @@
   background-image: url("https://yourfiles.cloud/uploads/613fb0a3c45509b59b1c4e102a89486d/Alambre-romboidal-bluemat-1.jpg");
   background-size: cover;
   background-position: center;
-  filter: blur(8px); /* Aplica el desenfoque solo al fondo */
-  z-index: -1; /* Asegura que esté detrás del texto */
+  filter: blur(8px); 
+  z-index: -1;
 }
 
 .productos-titulo::after {
@@ -33,14 +33,14 @@
     0,
     0,
     0.5
-  ); /* Fondo oscuro encima de la imagen desenfocada */
+  ); 
   z-index: 0;
 }
 
 .productos-titulo h1,
 .productos-descripcion {
   position: relative;
-  z-index: 1; /* Asegura que el texto esté por encima del fondo */
+  z-index: 1;
 }
 
 .productos-descripcion {
@@ -228,4 +228,59 @@
 
 .modal:hover .imagen-zoom {
   transform: scale(1.05);
+}
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: grey;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  font-size:0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup .popup-text {
+  margin-right: 10px;
+}
+
+.popup .popup-icon {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.popup.success {
+  background-color: #28a745;
+}
+
+.popup.error {
+  background-color: #dc3545;
+}
+.popup-imagen {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+@keyframes hidePopup {
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
 }

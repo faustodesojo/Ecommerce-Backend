@@ -45,7 +45,7 @@ const Contacto: React.FC = () => {
       return false;
     }
 
-    const phoneRegex = /^\d{7,15}$/; // Acepta números de 7 a 15 dígitos
+    const phoneRegex = /^\d{7,15}$/;
     if (!phoneRegex.test(formData.cellphone || "")) {
       setError(
         "Ingrese un número de celular válido (solo números, entre 7 y 15 dígitos)."
@@ -79,8 +79,7 @@ const Contacto: React.FC = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            required
-            className="form-input"
+            className="form-input1"
           />
         </div>
 
@@ -92,8 +91,7 @@ const Contacto: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            required
-            className="form-input"
+            className="form-input1"
           />
         </div>
 
@@ -105,8 +103,7 @@ const Contacto: React.FC = () => {
             name="cellphone"
             value={formData.cellphone}
             onChange={handleChange}
-            required
-            className="form-input"
+            className="form-input1"
           />
         </div>
 
@@ -117,7 +114,6 @@ const Contacto: React.FC = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            required
             className="form-textarea"
           />
         </div>
