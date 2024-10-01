@@ -30,11 +30,11 @@ body {
   flex-direction: column;
 }
 
-.form-group {
+.form-group1 {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.form-group1 label {
   color: white;
   font-weight: bold;
   margin-bottom: 5px;

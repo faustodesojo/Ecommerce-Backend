@@ -71,7 +71,7 @@ const Contacto: React.FC = () => {
     <div className="contact-container">
       <h2 className="contact-title">Contacto</h2>
       <form onSubmit={handleSubmit} className="contact-form">
-        <div className="form-group">
+        <div className="form-group1">
           <label htmlFor="name">Nombre:</label>
           <input
             type="text"
@@ -83,7 +83,7 @@ const Contacto: React.FC = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group1">
           <label htmlFor="email">Correo:</label>
           <input
             type="email"
@@ -95,7 +95,7 @@ const Contacto: React.FC = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group1">
           <label htmlFor="cellphone">Celular:</label>
           <input
             type="number"
@@ -107,7 +107,7 @@ const Contacto: React.FC = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group1">
           <label htmlFor="message">Mensaje:</label>
           <textarea
             id="message"

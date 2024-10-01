@@ -35,7 +35,7 @@ const Home: React.FC = () => {
         <h2>Nuestra Producción</h2>
         <p>
           Somos una empresa dedicada a la fabricación de productos de alambrado,
-          tanto de postes de hormigon como de tejido roomboidal. Contamos con
+          tanto de postes de hormigon como de tejido romboidal. Contamos con
           materiales de primera calidad y mano de obra especializada.
         </p>
         <ul>
