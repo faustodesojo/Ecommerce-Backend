@@ -37,11 +37,15 @@
     }
 }
 
-.redes, .contacto a{
+.footer-container a{    
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: #ffffff;
+}
+.footer-container p{
+    padding: 0;
+    margin: 0;
 }
 
 .contacto a:hover{

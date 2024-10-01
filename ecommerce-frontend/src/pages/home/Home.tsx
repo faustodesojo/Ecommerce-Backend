@@ -85,7 +85,7 @@ const Home: React.FC = () => {
                 className="product-image"
               />
               <p>{producto.descripcion}</p>
-              <p>{producto.precio}</p>
+              <p className="product-price">{producto.precio}</p>
               <Button onClick={() => handleCategoryClick(producto.categoria)}>
                 Ver más {producto.categoria}
               </Button>
