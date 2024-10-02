@@ -4,17 +4,21 @@ import "./Productos.css";
 import { useCart } from "../../pages/cart/CartContext";
 import Button from "../../components/UI/Button/Button";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
-import { useLocation } from "react-router-dom"; 
+import { useLocation } from "react-router-dom";
 
 const Productos: React.FC = () => {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string | null>(null);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<
+    string | null
+  >(null);
   const [productosMostrados, setProductosMostrados] = useState<number>(4);
   const [imagenZoom, setImagenZoom] = useState<string | null>(null);
   const { addToCart } = useCart();
-
   const [mostrarPopup, setMostrarPopup] = useState<boolean>(false);
-  const [productoAgregado, setProductoAgregado] = useState<{nombre: string, imagen: string} | null>(null);
-
+  const [productoAgregado, setProductoAgregado] = useState<{
+    nombre: string;
+    imagen: string;
+  } | null>(null);
+  const [cantidades, setCantidades] = useState<{ [key: number]: number }>({});
 
   const location = useLocation();
 
@@ -29,12 +33,16 @@ const Productos: React.FC = () => {
   }, [categoriaSeleccionada]);
 
   const productosFiltrados = categoriaSeleccionada
-    ? productos.filter((producto) => producto.categoria === categoriaSeleccionada)
+    ? productos.filter(
+        (producto) => producto.categoria === categoriaSeleccionada
+      )
     : productos;
 
   const productosVisibles = productosFiltrados.slice(0, productosMostrados);
 
-  const categorias = Array.from(new Set(productos.map((producto) => producto.categoria)));
+  const categorias = Array.from(
+    new Set(productos.map((producto) => producto.categoria))
+  );
 
   const cargarMasProductos = () => {
     setProductosMostrados(productosMostrados + 4);
@@ -49,15 +57,21 @@ const Productos: React.FC = () => {
   };
 
   const handleAddToCart = (producto: any) => {
-    addToCart(producto);
+    const cantidad = cantidades[producto.id] || 1; // Si no hay cantidad, se asigna 1
+    for (let i = 0; i < cantidad; i++) {
+      addToCart(producto);
+    }
     setProductoAgregado({ nombre: producto.nombre, imagen: producto.imagen });
     setMostrarPopup(true);
-  
+
     setTimeout(() => {
       setMostrarPopup(false);
-    }, 3500); 
+    }, 3500);
   };
-  
+
+  const handleCantidadChange = (id: number, value: number) => {
+    setCantidades((prev) => ({ ...prev, [id]: value }));
+  };
 
   return (
     <div className="productos-page">
@@ -106,8 +120,20 @@ const Productos: React.FC = () => {
             </div>
             <h3 className="producto-nombre">{producto.nombre}</h3>
             <p className="producto-descripcion">{producto.descripcion}</p>
-            <span className="producto-precio">{producto.precio}</span>
-            <Button onClick={() => handleAddToCart(producto)}>Agregar al Carrito</Button>
+            <div className="producto-precio">
+              <span>{producto.precio}</span>
+              <input
+                type="number"
+                min="1"
+                defaultValue="1"
+                onChange={(e) =>
+                  handleCantidadChange(producto.id, Number(e.target.value))
+                }
+              />
+            </div>
+            <Button onClick={() => handleAddToCart(producto)}>
+              Agregar al Carrito
+            </Button>
           </div>
         ))}
       </div>
@@ -126,19 +152,18 @@ const Productos: React.FC = () => {
         </div>
       )}
 
-{mostrarPopup && productoAgregado && (
-  <div className={`popup ${mostrarPopup ? 'visible' : ''}`}>
-    <img
-      src={`./images/${productoAgregado.imagen}`}
-      alt={productoAgregado.nombre}
-      className="popup-imagen"
-    />
-    <p>{productoAgregado.nombre} ha sido agregado al carrito</p>
-  </div>
-)}
-
-
+      {mostrarPopup && productoAgregado && (
+        <div className={`popup ${mostrarPopup ? "visible" : ""}`}>
+          <img
+            src={`./images/${productoAgregado.imagen}`}
+            alt={productoAgregado.nombre}
+            className="popup-imagen"
+          />
+          <p>{productoAgregado.nombre} ha sido agregado al carrito</p>
+        </div>
+      )}
     </div>
   );
 };
+
 export default Productos;

@@ -19,13 +19,19 @@ const Cart: React.FC = () => {
     setShowConfirm(false);
   };
 
+  const formatPrice = (price: number) => {
+    return `$${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
+  };
+
   const totalAmount = cart
     .reduce((total, producto) => {
       return (
-        total + producto.cantidad * parseFloat(producto.precio.replace("$", ""))
+        total +
+        producto.cantidad *
+          Math.floor(parseFloat(producto.precio.replace("$", "")))
       );
     }, 0)
-    .toFixed(2);
+    .toFixed(0); // Redondear a entero
 
   return (
     <div className="cart-container">
@@ -43,20 +49,22 @@ const Cart: React.FC = () => {
                 />
                 <p>{producto.nombre}</p>
                 <div className="cart-item-price">
-                <p>
-                  $
-                  {(
-                    producto.cantidad *
-                    parseFloat(producto.precio.replace("$", ""))
-                  ).toFixed(2)}
-                </p>
-                
-                <div className="quantity-controls">
-                    <button onClick={() => removeFromCart(producto.id)}>-</button>
+                  <p>
+                    {formatPrice(
+                      Math.floor(
+                        producto.cantidad *
+                          parseFloat(producto.precio.replace("$", ""))
+                      )
+                    )}
+                  </p>
+                  <div className="quantity-controls">
+                    <button onClick={() => removeFromCart(producto.id)}>
+                      -
+                    </button>
                     <span>{producto.cantidad}</span>
                     <button onClick={() => addToCart(producto)}>+</button>
                     <p
-                      onClick={() => removeFromCart(producto.id, true)} 
+                      onClick={() => removeFromCart(producto.id, true)}
                       className="remove-btn"
                     >
                       <IoTrashOutline />
@@ -74,7 +82,9 @@ const Cart: React.FC = () => {
               Vaciar Carrito
             </button>
           </div>
-          <p className="cart-total">Total: ${totalAmount}</p>
+          <p className="cart-total">
+            Total: {formatPrice(Number(totalAmount))}
+          </p>
         </>
       )}
 
@@ -82,8 +92,8 @@ const Cart: React.FC = () => {
         <div className="confirmation-modal">
           <p>¿Desea realizar la compra?</p>
           <div>
-          <Button onClick={() => confirmPurchase(true)}>Sí</Button>
-          <Button onClick={() => confirmPurchase(false)}>No</Button>
+            <Button onClick={() => confirmPurchase(true)}>Sí</Button>
+            <Button onClick={() => confirmPurchase(false)}>No</Button>
           </div>
         </div>
       )}

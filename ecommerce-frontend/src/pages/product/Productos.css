@@ -17,7 +17,7 @@
   background-image: url("https://yourfiles.cloud/uploads/613fb0a3c45509b59b1c4e102a89486d/Alambre-romboidal-bluemat-1.jpg");
   background-size: cover;
   background-position: center;
-  filter: blur(8px); 
+  filter: blur(8px);
   z-index: -1;
 }
 
@@ -28,12 +28,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); 
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
 
@@ -121,6 +116,26 @@
 .producto-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.producto-precio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.producto-precio span {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+.producto-precio input {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0 5px;
+  text-align: center;
 }
 
 .producto-imagen {
@@ -242,7 +257,7 @@
   opacity: 0;
   transform: translateY(-50px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  font-size:0.7rem;
+  font-size: 0.7rem;
   font-weight: bold;
   display: flex;
   align-items: center;
