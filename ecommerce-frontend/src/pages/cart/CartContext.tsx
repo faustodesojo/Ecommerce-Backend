@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface Producto {
   id: number;
@@ -13,14 +13,21 @@ interface Producto {
 interface CartContextProps {
   cart: Producto[];
   addToCart: (producto: Producto) => void;
-  removeFromCart: (id: number, removeAll?: boolean) => void; // Aquí se hace el cambio
+  removeFromCart: (id: number, removeAll?: boolean) => void;
   clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [cart, setCart] = useState<Producto[]>([]);
+  const [cart, setCart] = useState<Producto[]>(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (producto: Producto) => {
     setCart((prevCart) => {
@@ -46,7 +53,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             }
             return item;
           })
-          .filter((item) => item.cantidad > 0); 
+          .filter((item) => item.cantidad > 0);
       }
     });
   };
@@ -56,9 +63,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart }}
-    >
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
